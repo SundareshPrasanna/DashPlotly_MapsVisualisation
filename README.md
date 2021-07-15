@@ -1,4 +1,4 @@
-# Upwork_Maps_Visualization
+# DashPlotly_MapsVisualisation
 
 Upwork task on visualising Maps using Dash Plotly
 
