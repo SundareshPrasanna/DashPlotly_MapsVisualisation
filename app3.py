@@ -37,28 +37,21 @@ app.layout = html.Div([
               [Input("type_of_store", "value")])
 def display_map(type_of_store):
     combined_dataset = first_dataset.append(second_dataset, ignore_index=True)
-    if type_of_store == "both":
-        marker_color = ["#D14646", "#20CEC3"]
-    elif type_of_store == 'regular':
+    if type_of_store != "both":
         combined_dataset = combined_dataset[combined_dataset['type_name']
                                             == type_of_store]
-        marker_color = "#D14646"
-    else:
-        combined_dataset = combined_dataset[combined_dataset['type_name']
-                                            == type_of_store]
-        marker_color = "#20CEC3"
-
     fig = px.scatter_mapbox(
         combined_dataset,
         lon='lon',
         lat='lat',
         hover_name='name',
+        color='type_name',
         hover_data=['name', 'address'],
-        color_discrete_sequence=["magenta"], zoom=9, height=300)
+        zoom=9, height=300)
     fig.update_layout(mapbox_style="open-street-map",
                       title='Plotly Visualization - Upwork',
                       height=600,
-                      width=1800,
+                      width=1200,
                       margin={"r": 0, "t": 30, "l": 0, "b": 0}
                       )
 
