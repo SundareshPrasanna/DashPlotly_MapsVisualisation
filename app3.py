@@ -95,9 +95,7 @@ def callback(selection1, type_of_store):
             header=dict(values=list(combined_dataset.columns),
                         fill_color=headerColor,
                         align='left'),
-            cells=dict(values=[combined_dataset.type_name,
-                               combined_dataset.name, combined_dataset.address,
-                               combined_dataset.lat, combined_dataset.lon],
+            cells=dict(values=[combined_dataset.name, combined_dataset.address, combined_dataset.lat, combined_dataset.lon, combined_dataset.type_name],
                        line_color='darkslategray', font=dict(color='darkslategray', size=11),
                        align='left', fill_color=[[rowOddColor, rowEvenColor, rowOddColor, rowEvenColor, rowOddColor]*5],))])
     else:
@@ -134,7 +132,7 @@ def callback(selection1, type_of_store):
             header=dict(values=list(combined_dataset.columns),
                         fill_color=headerColor,
                         align='left'),
-            cells=dict(values=[combined_dataset.type_name, combined_dataset.name, combined_dataset.address, combined_dataset.lat, combined_dataset.lon],
+            cells=dict(values=[combined_dataset.name, combined_dataset.address, combined_dataset.lat, combined_dataset.lon, combined_dataset.type_name, ],
                        line_color='darkslategray', font=dict(color='darkslategray', size=11),
                        align='left', fill_color=[[rowOddColor, rowEvenColor, rowOddColor, rowEvenColor, rowOddColor]*5],))])
 
