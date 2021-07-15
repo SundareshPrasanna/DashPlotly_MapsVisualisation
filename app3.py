@@ -100,7 +100,7 @@ def callback(selection1, type_of_store):
                                combined_dataset.lat, combined_dataset.lon],
                        line_color='darkslategray', font=dict(color='darkslategray', size=11),
                        align='left', fill_color=[[rowOddColor, rowEvenColor, rowOddColor, rowEvenColor, rowOddColor]*5],))])
-    elif(selection1 is not None):
+    else:
         combined_dataset = first_dataset.append(
             second_dataset, ignore_index=True)
         if type_of_store != "both":
