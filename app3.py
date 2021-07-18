@@ -37,27 +37,30 @@ app.layout = html.Div([
                                                                 'vertical-align': 'top', 'display': 'inline-block', 'padding': '0px',
                                                                 'margin': '0px'})]),
     html.Div(className='row',
-             children=[dash_table.DataTable(
-                 id='table_viz',
-                 columns=[{'name': i, 'id': i}
-                          for i in sorted(combined_dataset.columns)],
-                 data=combined_dataset.to_dict('records'),
-                 sort_mode='multi',
-                 export_format="csv",
-                 filter_action='native',
-                 style_table={'overflowX': 'scroll',
-                              'maxHeight': '400px'},
-                 style_header={
-                     'backgroundColor': 'rgb(188, 74, 60)', 'color': 'white', },
-                 style_cell={'textAlign': 'center',  'backgroundColor': '#e5e4e2',
-                             'color': '#36454F',
-                             'height': 'auto', 'minWidth': '80px', 'width': '60px', 'maxWidth': '80px',
-                             },
-                 sort_by=[],
-                 style_data={
-                     'overflow': 'hidden',
-                     'textOverflow': 'ellipsis',
-                 })], style={
+             children=[
+                       # find a way to clear filter better. Currently this is bugged and under investigation
+                       # html.Button('Reset Table', n_clicks=0, id="clear-filter"),
+                       dash_table.DataTable(
+                           id='table_viz',
+                           columns=[{'name': i, 'id': i}
+                                    for i in sorted(combined_dataset.columns)],
+                           data=combined_dataset.to_dict('records'),
+                           sort_mode='multi',
+                           export_format="csv",
+                           filter_action='native',
+                           style_table={'overflowX': 'scroll',
+                                        'maxHeight': '400px'},
+                           style_header={
+                               'backgroundColor': 'rgb(188, 74, 60)', 'color': 'white', },
+                           style_cell={'textAlign': 'center',  'backgroundColor': '#e5e4e2',
+                                       'color': '#36454F',
+                                       'height': 'auto', 'minWidth': '80px', 'width': '60px', 'maxWidth': '80px',
+                                       },
+                           sort_by=[],
+                           style_data={
+                               'overflow': 'hidden',
+                               'textOverflow': 'ellipsis',
+                           })], style={
                  'width': '77.5%'})])
 
 
