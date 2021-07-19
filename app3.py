@@ -52,6 +52,8 @@ app.layout = html.Div([
                            sort_mode='multi',
                            export_format="csv",
                            filter_action='native',
+                           page_action='none',
+                           virtualization=True,
                            style_table={'overflowX': 'scroll',
                                         'maxHeight': '400px'},
                            style_header={
@@ -95,7 +97,7 @@ def display_map(type_of_store, filter_value):
                           width=1400,
                           margin={"r": 0, "t": 30, "l": 0, "b": 0}
                           )
-    except:
+    except Exception as e:
         raise dash.exceptions.PreventUpdate
 
     return fig
